@@ -1,4 +1,6 @@
 import Link from "next/link";
+import classes from "./event-item.module.css";
+import Button from "../ui/button";
 
 function EventItem(props) {
 	const { title, image, date, location, id } = props;
@@ -11,20 +13,20 @@ function EventItem(props) {
 
 	const formattedAddress = location.replace(", ", "\n");
 	return (
-		<li>
+		<li className={classes.item}>
 			<img src={"/" + image} alt={title} />
-			<div>
-				<div>
+			<div className={classes.content}>
+				<div className={classes.summary}>
 					<h2> {title} </h2>
-					<div>
+					<div className={classes.date}>
 						<time> {humanReadableDate} </time>
 					</div>
-					<div>
+					<div className={classes.address}>
 						<address> {formattedAddress} </address>
 					</div>
 				</div>
-				<div>
-					<Link href={`/events/${id}`}> Explore Event </Link>
+				<div className={classes.actions}>
+					<Button link={`/events/${id}`}> Explore Event </Button>
 				</div>
 			</div>
 		</li>

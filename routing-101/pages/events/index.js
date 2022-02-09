@@ -1,5 +1,4 @@
 function AllEventsPage() {
-	const events = getAllEvents();
 	return <div>All Events Page</div>;
 }
 
